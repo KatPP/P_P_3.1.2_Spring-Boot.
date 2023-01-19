@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Change user</title>
+</head>
+<body>
+<h2>Change user</h2>
+<div>
+
+    <form th:action="@{/users/edit}" th:object="${user}" method="post">
+        <input type="hidden" name="id" th:value="${user.getId()}">
+        <fieldset>
+            <legend>User data</legend>
+            <p>
+                <label th:for="name">Name</label>
+                <label>
+                    <input type="text" name="name" th:id="name" th:value="${user.getName()}">
+                </label>
+            </p>
+            <p>
+                <label th:for="lastName">Address</label>
+                <label>
+                    <input type="text" name="address" th:id="address" th:value="${user.getAddress()}">
+                </label><br/>
+            </p>
+            <p>
+                <label th:for="email">Email</label>
+                <label>
+                    <input type="text" name="email" th:id="email" th:value="${user.getEmail()}">
+                </label><br/>
+            </p>
+
+        </fieldset>
+        <button type="submit">To change the data</button>
+    </form>
+
+
+    <br/>
+    <form th:action="@{/}">
+        <button type="submit">Back to user list</button>
+    </form>
+</div>
+</body>
+</html>
